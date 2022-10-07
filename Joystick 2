@@ -17,17 +17,21 @@ pinMode(DOWN_LED, OUTPUT);
 void loop(){
 delay(500);
 
-if(analogRead(X_pin) ==1023 && analogRead(Y_pin) ==1023){ 
-  
+if(analogRead(X_pin) ==1023 && analogRead(Y_pin) ==1023){
+  digitalWrite(UP_LED, HIGH);
+  digitalWrite(RIGHT_LED, HIGH);
 }
-else if(analogRead(X_pin) ==0 && analogRead(Y_pin) ==1023){ 
-  
+else if (analogRead(X_pin) ==0 && analogRead(Y_pin) ==1023){
+  digitalWrite(DOWN_LED, HIGH);
+  digitalWrite(RIGHT_LED, HIGH);
 }
-else if((analogRead(Y_pin) ==1023 && analogRead(X_pin) ==1023){ 
-  
+else if (analogRead(Y_pin) ==0 && analogRead(X_pin) ==0){
+  digitalWrite(LEFT_LED, HIGH);
+  digitalWrite(DOWN_LED, HIGH);
 }
-else if((analogRead(Y_pin) ==0 && analogRead(X_pin) ==1023){
-
+else if (analogRead(Y_pin) ==0 && analogRead(X_pin) ==1023){
+  digitalWrite(LEFT_LED, HIGH);
+  digitalWrite(UP_LED, HIGH);
 }
 else if(analogRead(X_pin) ==1023){
 digitalWrite(UP_LED, HIGH);
@@ -38,7 +42,7 @@ digitalWrite(DOWN_LED, HIGH);
 else if(analogRead(Y_pin) ==1023){
 digitalWrite(RIGHT_LED, HIGH);
 }
-else if(analogRead(Y_pin) ==0){
+else if(analogRead(Y_pin ==0)){
 digitalWrite(LEFT_LED, HIGH);
 }
 else if(digitalRead(SW_pin) == 0){
